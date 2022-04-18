@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CSS Notes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="36b5ed45-c890-4db5-90ce-879ab83e180e" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_henri_rousseau_1907.jpg" style="object-position:center 30.000000000000004%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">⛅</span></div><h1 class="page-title">CSS Notes</h1></header><div class="page-body"><nav id="7763fdbb-0345-43cd-9152-5a855d232688" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#248141da-ccfe-4ccb-a735-a13ce0772680">基础</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c0987825-4e9a-4b67-b2b2-6107a896e26e">注释快捷键：<code>Ctrl+/</code></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5b059518-6c89-40d5-8fda-b858fe9dc737">代码风格</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9acd7d1d-483b-40ea-bf9e-2108681b34a0">引入方式</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#73057327-0fa6-417f-9c20-7ced53feae4f">Emmet 语法（+tab）</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b99f4403-221e-4352-8ecd-6f4c3d506c3d"><strong><em>HTML</em></strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#f82b2529-4492-4ae9-91d9-c496dcc47bc1"><strong><em>CSS</em></strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a7accd63-1b03-44ca-8e04-da2b3da2e813">元素显示模式</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#02729352-fe73-4fcb-8a3b-c87c15ad5510">CSS 三大特性</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#399fc7d9-e8fd-413d-8441-64a8a76e0b2d">选择器</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#000de4c8-cb28-49b5-a152-2a3076bd5493">基础选择器</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6e9afcdc-fca7-4039-9460-b7ac6db92aec"><strong>复合选择器</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#87d46dbb-eebf-4e18-94b1-fb86c88a9c8e">属性、值和单位</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7593b0c8-b965-43a1-a885-58e25a30a5ea">字体</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7c93305a-490c-4dee-a317-29bd44b8c210">文本</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a390acc6-44a6-4ae7-9250-6b3ce6023e10">背景</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e43f4a6e-727a-4faa-9ab5-994c4ef27f67">盒模型</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1a244b45-fc09-4945-982b-367ccf6b50bf">边框（border）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#94cbfd52-7279-4ddd-ab6d-9de90f296598">内边距（padding）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6740956b-ebc2-456b-baaf-13a93a451f25">外边距（margin）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#02c0cfe2-3178-4d95-9474-bbc2d046174d">清除网页元素的内外边距</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#08b4c9a5-2948-4d5a-ab8c-c5d75d9184fe">常用布局</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c1bb25f5-cb66-4831-96ff-d229c10ec238">浮动</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b72aaafe-28d3-4613-8cbc-294b6e64a995">清除浮动</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4664ade0-8ac5-4d70-adc0-42fd123c0f4c">定位</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#76f97ded-f5af-4735-9585-b4821c41507e">定位模式</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#26ac0038-590d-4ec1-9837-e257b2779d57">定位叠放次序</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#be789b01-5a65-4593-a9e4-85e0519d1ec9">定位的拓展</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#397b9725-672e-452b-ba5c-8ad946431a24">元素的显示与隐藏</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9cc92015-4d0e-48a2-b281-691c3d8ddde6">CSS 3</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#21452f3d-3b39-444e-8153-ea799f26cec2">基础</a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#713aee86-0050-49a9-a3b2-50d13f513928">边框和阴影</a></div></nav><h1 id="248141da-ccfe-4ccb-a735-a13ce0772680" class="">基础</h1><h2 id="c0987825-4e9a-4b67-b2b2-6107a896e26e" class="">注释快捷键：<code>Ctrl+/</code></h2><h2 id="5b059518-6c89-40d5-8fda-b858fe9dc737" class="">代码风格</h2><pre id="be46247d-9aa0-41d0-a0fd-4c9ce9bb5347" class="code"><code>selector {
+  property: value;
+}
+
+# 展开格式/ 小写 / 冒号后一个空格 / 选择器和{中间用空格</code></pre><h2 id="9acd7d1d-483b-40ea-bf9e-2108681b34a0" class="">引入方式</h2><pre id="70cb912f-1053-44b3-ade2-ce4e8d092267" class="code"><code>1.内部样式表(控制一个页面) &lt;style&gt; &lt;/style&gt; 放在 &lt;head&gt; 中
+2.行内样式表(控制一个元素，较少使用) &lt;div style=&quot;color: red; &quot;&gt;
+3.外部样式表(控制多个页面) &lt;link rel=&quot;文件名&quot; href=&quot;css路径&quot;&gt;</code></pre><h2 id="73057327-0fa6-417f-9c20-7ced53feae4f" class="">Emmet 语法（+tab）</h2><h3 id="b99f4403-221e-4352-8ecd-6f4c3d506c3d" class=""><strong><em>HTML</em></strong></h3><ol type="1" id="8052cee9-9876-43b3-a2f4-2269352ead79" class="numbered-list" start="1"><li>生成标签：<code>输入标签名</code></li></ol><ol type="1" id="d0c6d4c2-0f4c-45ba-8d4c-06ffbe5090af" class="numbered-list" start="2"><li>生成多个标签：<code>标签名*数字</code></li></ol><ol type="1" id="d6d5640e-1de6-47b3-aa27-0b50031e6109" class="numbered-list" start="3"><li>父子级：<code>标签名1&gt;标签名2</code></li></ol><ol type="1" id="6dfd5237-147d-41f4-ba64-73ea26053243" class="numbered-list" start="4"><li>兄弟关系：<code>标签名1+标签名2</code></li></ol><ol type="1" id="861aa748-1ede-4658-a2fa-90b7828bcfea" class="numbered-list" start="5"><li>类名：<code>标签名.类名 / 标签名#id</code></li></ol><ol type="1" id="d4a4914c-8a23-4b93-98d6-31d3b609dd4a" class="numbered-list" start="6"><li>标签内部默认显示内容 <code>标签名{XXXX}</code></li></ol><ol type="1" id="53214ca8-a8d8-4dc8-8549-2b89aa0c62a2" class="numbered-list" start="7"><li>名有顺序 <code>标签名.类名$*数字</code> （$为自增符号）</li></ol><h3 id="f82b2529-4492-4ae9-91d9-c496dcc47bc1" class=""><strong><em>CSS</em></strong></h3><ul id="d2bd3b31-c90e-4c16-9ee7-321f8e7caae4" class="bulleted-list"><li style="list-style-type:disc">直接简写+Tab  <code>例如：W200 - width: 200px</code></li></ul><h2 id="a7accd63-1b03-44ca-8e04-da2b3da2e813" class="">元素显示模式</h2><p id="8509a21a-a777-4a16-8c19-8083b23ae111" class=""><mark class="highlight-orange">HTML元素 一般分为 块元素 和 行内元素
+</mark>
+一、<strong>块级元素的特点</strong><div class="indented"><ol type="1" id="699befc5-5f49-4b74-bb4b-a852d6c73086" class="numbered-list" start="1"><li>自己独占一行</li></ol><ol type="1" id="1dcfcb77-6de4-49d6-b84c-a039c76f9008" class="numbered-list" start="2"><li>高度、宽度、外边距和内边距都可以控制</li></ol><ol type="1" id="0d1a3187-110d-4ceb-a93d-314e6db03a25" class="numbered-list" start="3"><li>宽度默认是容器（父级宽度）的100%</li></ol><ol type="1" id="59dcf58b-5d1e-47cc-859e-3742e7c255e0" class="numbered-list" start="4"><li>是一个容器及盒子，里面可以放行内或块级元素<p id="95cae29f-3853-49fe-9845-e92bf5eb25b8" class="">#<code>&lt;p&gt; &lt;h&gt;</code>主要用于存放文字，所以不能放块级元素</p><p id="916833f5-d158-4c77-9032-31bf16e9ba85" class="">#转换成行内元素<code>display: inline</code> (较少使用)</p></li></ol></div></p><p id="ccb14eb6-6989-49a5-9340-82c21a27fe32" class="">二、<strong>行内元素的特点</strong><div class="indented"><ol type="1" id="d0938eb7-34a4-4a55-b10e-d2cdf5a9c72a" class="numbered-list" start="1"><li>相邻的元素在一行上，一行上可以显示多个</li></ol><ol type="1" id="fc7d6a2f-51aa-4344-b094-c7d4b7e408f0" class="numbered-list" start="2"><li>高、宽直接设置是无效的</li></ol><ol type="1" id="695562cc-2d6e-4588-85b9-1cc675fc60d5" class="numbered-list" start="3"><li>默认宽度就是它本身内容的宽度</li></ol><ol type="1" id="4da0243f-1bf2-4cba-a9f0-5bd9e6014d52" class="numbered-list" start="4"><li>行内元素只能容纳文本或其他行内元素<p id="907d579d-cf67-4d01-a3ac-e87143fe4f50" class="">#链接里不能再放链接</p><p id="2904e7be-4035-4dff-a4ef-8d596ed90b04" class="">#特殊情况<code>&lt;a&gt;</code>里可以放块级元素，转换成块级模式<code>display: block</code>最安全</p></li></ol></div></p><p id="5a055f18-c3dd-4724-ab92-5b5d269dba17" class="">三、<strong>行内块元素</strong> <code>&lt;img&gt; &lt;input&gt; &lt;td&gt;</code><div class="indented"><ol type="1" id="1dbe566a-2a2f-41e7-8dda-affffa5b7efe" class="numbered-list" start="1"><li>一行可以显示多个，但是之间会有空白缝隙</li></ol><ol type="1" id="f5311bf0-7a71-47e1-9af3-674e9e3da129" class="numbered-list" start="2"><li>默认宽度就是本身的宽度</li></ol><ol type="1" id="5e999138-7d03-4d2f-a43e-b07db47de5e0" class="numbered-list" start="3"><li>高度、宽度、外边距和内边距都可以控制<p id="bd30b230-dcfd-4feb-ba7c-e19f45871dc0" class="">#转换成行内块元素 <code>display: inline-block</code></p></li></ol></div></p><h2 id="02729352-fe73-4fcb-8a3b-c87c15ad5510" class="">CSS 三大特性</h2><ol type="1" id="dd660346-4609-4867-a81c-322073948d91" class="numbered-list" start="1"><li>层叠性：样式冲突遵循就近原则</li></ol><ol type="1" id="c73126fc-856e-4c45-adac-5e92599aedd2" class="numbered-list" start="2"><li>继承性：子标签继承父标签的某些（文字颜色字号行高）样式<ol type="a" id="bbfdb8a3-132f-47e9-84e2-cb502de1ccfd" class="numbered-list" start="1"><li>body写行高最大优势就是里面的子元素可以根据自己文字大小自动调整行高。</li></ol></li></ol><ol type="1" id="4ab163c8-fda1-445e-822a-bb22f8399c7c" class="numbered-list" start="3"><li>优先级：选择器相同，执行层叠性；选择器不同，根据选择器权重执行。<table id="bc7517fc-768d-49b5-9217-3e951ff6f5ff" class="simple-table"><thead class="simple-table-header"><tr id="723df292-dbe8-4c46-898a-a1b4ef15cd72"><th id="G?]s" class="simple-table-header-color simple-table-header" style="width:302.5083923339844px">选择器</th><th id="e&lt;r`" class="simple-table-header-color simple-table-header" style="width:302.5083923339844px">选择器权重</th></tr></thead><tbody><tr id="cd75e772-f913-4913-a671-22e46cde0f48"><td id="G?]s" class="" style="width:302.5083923339844px">继承 或者*</td><td id="e&lt;r`" class="" style="width:302.5083923339844px">0，0，0，0</td></tr><tr id="5f595248-926e-42e5-96c7-4b6f50226824"><td id="G?]s" class="" style="width:302.5083923339844px">元素选择器</td><td id="e&lt;r`" class="" style="width:302.5083923339844px">0，0，0，1</td></tr><tr id="0af3af0b-d699-4765-aa8d-462c98e26434"><td id="G?]s" class="" style="width:302.5083923339844px">类/伪类选择器</td><td id="e&lt;r`" class="" style="width:302.5083923339844px">0，0，1，0</td></tr><tr id="8f635821-69b8-4d5c-840f-f1b35cef75be"><td id="G?]s" class="" style="width:302.5083923339844px">ID选择器</td><td id="e&lt;r`" class="" style="width:302.5083923339844px">0，1，0，0</td></tr><tr id="90f061bf-b885-4ad2-a91e-2094dd853ce5"><td id="G?]s" class="" style="width:302.5083923339844px">行内样式</td><td id="e&lt;r`" class="" style="width:302.5083923339844px">1，0，0，0</td></tr><tr id="26cfbd9d-322c-447a-bef3-c4874602a02d"><td id="G?]s" class="" style="width:302.5083923339844px">!important</td><td id="e&lt;r`" class="" style="width:302.5083923339844px">无穷大</td></tr></tbody></table><ol type="1" id="c6af7a63-fc92-436e-884c-47f5798711fb" class="numbered-list" start="1"><li>继承权重永远是0，就算加了!important</li></ol><ol type="1" id="0ac8b583-a6fb-400d-9542-e82285ad5ea2" class="numbered-list" start="2"><li>a链接浏览器已经默认制定了样式</li></ol><ol type="1" id="46155017-8314-41e8-90ed-0fc5de3fa741" class="numbered-list" start="3"><li>复合选择器会有权重叠加的问题，但累加的时候不会有进位的问题</li></ol></li></ol><h1 id="399fc7d9-e8fd-413d-8441-64a8a76e0b2d" class="">选择器</h1><h2 id="000de4c8-cb28-49b5-a152-2a3076bd5493" class="">基础选择器</h2><ol type="1" id="c9965d40-0c50-405f-82e8-da56c7d0387a" class="numbered-list" start="1"><li>标签选择器</li></ol><ol type="1" id="382da24c-86d9-4fd7-9469-ae1129088ffa" class="numbered-list" start="2"><li>类选择器  <code>class=&quot;XXX&quot; / .XXX {</code> / 多类名：<code>&lt;div class=&quot;red font35&quot;&gt;</code></li></ol><ol type="1" id="91a47653-08a5-4c18-8d02-0ab8facda286" class="numbered-list" start="3"><li>id 选择器（一般和js搭配）<code> id=&quot;XXX&quot;/ #XXX {</code></li></ol><ol type="1" id="c79280c7-b16b-4bfa-b4f3-da618aef50de" class="numbered-list" start="4"><li>通配符选择器（选取页面中所有元素）<code>* {</code></li></ol><h2 id="6e9afcdc-fca7-4039-9460-b7ac6db92aec" class=""><strong>复合选择器</strong></h2><ol type="1" id="b672a1aa-1eb8-4e29-ba78-2d4911ab4eaa" class="numbered-list" start="1"><li>后代选择器（选择父元素里的子元素）<code>ol li a {</code>  <code>.nav li a {</code></li></ol><ol type="1" id="049ecfd1-2657-4bac-abbd-699547ae428a" class="numbered-list" start="2"><li>子选择器（必须选择最近一级的子元素)  <code>.nav &gt; p {</code></li></ol><ol type="1" id="6dbd8d79-2ab7-4943-891f-ce0ecf34461a" class="numbered-list" start="3"><li>并集选择器 <code>div, p {</code>  <code>div, p, .pig li {</code> (一般竖着写)</li></ol><ol type="1" id="08410b24-1f5f-4484-9898-d9e73fb07e00" class="numbered-list" start="4"><li>伪类选择器（添加特殊效果）<ul id="74fe0a52-8b1f-4b16-9de6-99ee051884e4" class="bulleted-list"><li style="list-style-type:disc">链接伪类<pre id="0fc795fd-1434-45c9-bd27-cefb97ecd02a" class="code"><code>a:link  选择所有未被访问的链接
+a:visited  选择所有已被访问的链接
+a:hover  选择鼠标指针位于其上的链接
+a:active  选择活动链接（鼠标按下未弹起）
+
+#为了确保生效，按LVHA顺序声明
+#a链接必须要单独指定样式，默认样式不起作用
+</code></pre></li></ul><ul id="af7e2826-928a-4583-ab0d-b71f31e72186" class="bulleted-list"><li style="list-style-type:disc">focus伪类选择器（选取获得焦点的表单元素）<pre id="be7afe64-295f-4586-8059-438c93785f76" class="code"><code>input: focus</code></pre></li></ul></li></ol><h1 id="87d46dbb-eebf-4e18-94b1-fb86c88a9c8e" class="">属性、值和单位</h1><h2 id="7593b0c8-b965-43a1-a885-58e25a30a5ea" class="">字体</h2><ol type="1" id="f6e1dd8d-83e7-4a2e-8b4e-f3efb0a6f431" class="numbered-list" start="1"><li>字体系列<pre id="8dd6bb4a-c886-4bdb-bb4e-180f681b1f7c" class="code"><code>font-family:Arial, &quot;Microsoft Yahei&quot;, &quot;微软雅黑&quot;, serif;
+
+#如果多个单词组成的字体，加引号
+# monospace (usually for code)</code></pre></li></ol><ol type="1" id="264f27d6-c216-450c-a922-6aaac0b51baf" class="numbered-list" start="2"><li>字体大小<pre id="a82bb1ca-c6f7-47d6-beb8-54d95f76f117" class="code"><code>Font-size:100% = 16px
+Font-size:1em = 16px (em 代表一个文字大小)
+Font-size:1rem = ignore the parent size</code></pre></li></ol><ol type="1" id="d3560fb8-f0ca-404f-9fc1-3122795390bf" class="numbered-list" start="3"><li>字体粗细<pre id="732930da-5809-4b7e-8dd0-e1ea9071ef42" class="code"><code>font-weight:normal或写400 / bold或写700 / bolder / lighter </code></pre></li></ol><ol type="1" id="555c6207-83e6-4a1e-a78a-165e24d9c7fc" class="numbered-list" start="4"><li>斜体<pre id="219d8670-402f-4266-a16f-8bf9a7f3878d" class="code"><code>font-style: normal / italic (斜体) /</code></pre></li></ol><ol type="1" id="413cb951-ee87-4126-a8c0-6f32d16e29a1" class="numbered-list" start="5"><li>复合属性<pre id="08a5a604-149d-4c8c-8e11-29078b0019f7" class="code"><code>font: font-style font-weight font-size/line-height font-family
+例：font: italic 700 16px/20px &quot;Microsoft Yahei&quot;;
+
+#不能颠倒顺序
+#不需要的属性可以省略（取默认值），但必须保留font-size和font-family属性 </code></pre></li></ol><h2 id="7c93305a-490c-4dee-a317-29bd44b8c210" class="">文本</h2><ol type="1" id="532e369c-faa4-4c53-8b03-bea9012fc360" class="numbered-list" start="1"><li>文本颜色<pre id="2e53613e-9bb0-4dee-a628-0cae29e0fad8" class="code"><code>color: red / #XXXXXX / rgb(XXX,XXX,XXX);</code></pre></li></ol><ol type="1" id="324f05c5-ac88-4f87-b39b-c5bde09e1c2f" class="numbered-list" start="2"><li>对齐文本（水平）<pre id="a6828ea2-5343-4f28-a270-b6670c8401c2" class="code"><code>text-align:left / right / center;
+
+#想要图片居中对齐，则是让它的父亲P标签添加水平居中的代码</code></pre></li></ol><ol type="1" id="b16729ed-4a9c-40c0-8262-352df20e8bb7" class="numbered-list" start="3"><li>装饰文本<pre id="c28432ee-69d7-4ac8-95d9-8dd040d18148" class="code"><code>text-decoration: none / underline / overline (几乎不用) / line-through</code></pre></li></ol><ol type="1" id="cf8049e9-fab4-4b18-a188-d4e3fda15b3d" class="numbered-list" start="4"><li>文本缩进<pre id="c8db1845-8081-4e65-8fa3-9b44214b64d4" class="code"><code>text-indent: 2em; (只缩进首行)</code></pre></li></ol><ol type="1" id="0fd9c375-4f94-44ab-8b26-a41a03f0cc03" class="numbered-list" start="5"><li>行间距<pre id="d59bba42-b6ac-46d4-bd1f-e336cfd3c180" class="code"><code>line-height: 26px / 2
+
+#行间距=上间距+文本高度+下间距 (可以从上一行底测量到下一行底即是行间距)
+#单行文字垂直居中：让文字的行高等于盒子的高度
+# 2 为当前元素文字大小的2倍</code></pre></li></ol><h2 id="a390acc6-44a6-4ae7-9250-6b3ce6023e10" class="">背景</h2><ol type="1" id="7610b819-0c54-4f7b-82e9-b62bd8a22f26" class="numbered-list" start="1"><li>背景颜色<pre id="f11809a8-38ae-455b-8986-351caa840ab2" class="code"><code>background-color: transparent (默认) / color</code></pre></li></ol><ol type="1" id="cc88503a-7520-4bbf-bf09-4569b401d211" class="numbered-list" start="2"><li>背景图片<pre id="8210d1d3-346c-42dc-900a-fc72370af60f" class="code"><code>background-image: none / url()  
+
+#logo或小的装饰性的图片，便于控制位置</code></pre></li></ol><ol type="1" id="a97a70eb-8933-42eb-b11b-29dbb9edc91a" class="numbered-list" start="3"><li>背景（图片）平铺<pre id="8eb39e42-1644-49b4-aa5e-3ff26891e776" class="code"><code>background-repeat: repeat (默认) / no-repeat / repeat-x / repeat-y
+
+#背景图片会压住背景颜色</code></pre></li></ol><ol type="1" id="412e18b9-f45f-416e-9f3c-87195204ff69" class="numbered-list" start="4"><li>背景图片位置<pre id="30094283-5fab-494f-aae7-3d7df7a14109" class="code"><code>background-position: x y
+
+#xy可以使用方位名词或精确单位，可以混合使用
+#如果是方位名词，前后两个值顺序无关，效果一致 例如：left top / top left
+#如果只指定了一个方位名词，另一个省略，则默认(y轴)居中对齐</code></pre></li></ol><ol type="1" id="7ed3de8e-8e7e-4ce8-96af-ac05253d6db9" class="numbered-list" start="5"><li>背景附着<pre id="7829b82b-38f4-4000-88b8-ff6d9869f788" class="code"><code> background-attachment: scroll (默认) / fixed</code></pre></li></ol><ol type="1" id="95af6bb0-be88-45c5-a349-8a44556ca32f" class="numbered-list" start="6"><li>复合写法<pre id="626bdcd2-5b6a-46ec-a130-2e74ac3cbddb" class="code"><code>background:   
+
+#没有特殊顺序，一般为颜色、图片、平铺、滚动、位置</code></pre></li></ol><ol type="1" id="ea101020-3988-4307-9c60-f53cb9943e36" class="numbered-list" start="7"><li>背景颜色半透明<pre id="77b7704b-8168-42c2-b24d-6a832ae29be1" class="code"><code>background: rgb(0,0,0,0.5);
+
+#最后一个参数为alpha透明度，取值范围在0-1之间，0为100%透明，0.5的0可以省略
+#CSS3 新增属性 IE 9+
+#背景半透明，内容不受影响</code></pre></li></ol><h1 id="e43f4a6e-727a-4faa-9ab5-994c4ef27f67" class="">盒模型</h1><h2 id="1a244b45-fc09-4945-982b-367ccf6b50bf" class="">边框（border）</h2><ol type="1" id="930ade16-d3a6-4a63-b2ac-b48fee6e4286" class="numbered-list" start="1"><li>边框宽度（粗细）<code>border-width: xx px</code></li></ol><ol type="1" id="935f62f8-bb37-4102-8d47-3996f354e6e7" class="numbered-list" start="2"><li>边框样式 <code>border-style</code><pre id="6ac1c2fb-c5e4-4abe-90e3-39d09fc4d4de" class="code"><code>solid 实线 
+dashed 虚线
+dotted 点线</code></pre></li></ol><ol type="1" id="b0e3b8c8-2839-4815-afe3-79b3b6d3bb53" class="numbered-list" start="3"><li>边框颜色 <code>border-color</code></li></ol><ol type="1" id="f93d5773-f02f-481e-91b2-3fe7918a2cef" class="numbered-list" start="4"><li>边框简写：<code>border:1px solid red;</code> (没有顺序)</li></ol><ol type="1" id="1bfb29ba-ae13-42f6-98e5-4af3286dd11d" class="numbered-list" start="5"><li>边框分开写法：<code>border-top</code> ...</li></ol><ol type="1" id="bb1d68bf-4596-4af4-b745-8b98f2d7a19e" class="numbered-list" start="6"><li><strong>边框会增加盒子大小，解决方法：</strong><ol type="a" id="1fbbd743-529e-4b33-950f-927c897688ab" class="numbered-list" start="1"><li>测量盒子大小的时候，不量边框</li></ol><ol type="a" id="0b05fa12-b91a-415f-8d03-0010423b3418" class="numbered-list" start="2"><li>如果测量的时候包含了边框，则需要width/height减去边框宽度</li></ol></li></ol><h2 id="94cbfd52-7279-4ddd-ab6d-9de90f296598" class="">内边距（padding）</h2><ol type="1" id="330d2ae2-0b7e-4d7f-88de-790f2bb94638" class="numbered-list" start="1"><li>设置内边距 <code>padding-top</code> ...</li></ol><ol type="1" id="d289d00d-1bf0-461a-866f-a8cf8beeade8" class="numbered-list" start="2"><li>简写：一个值-上下 / 两个值-上下和左右/三个值-上和左右和下/四个值-顺时针</li></ol><ol type="1" id="22525ac9-24c2-4983-8647-2da4084ce639" class="numbered-list" start="3"><li><strong>内边框会撑大盒子，解决方法：</strong><ol type="a" id="cf148fe4-33a5-4275-8746-98e94a7240bc" class="numbered-list" start="1"><li>让width/height减去内边距大小<ol type="i" id="159767d0-6930-4fba-a6d1-4e4f0ee1de06" class="numbered-list" start="1"><li>利用这个原理，可以做导航栏。不用给盒子宽度，直接给左右padding，这样盒子会根据内容大小变化。</li></ol></li></ol><ol type="a" id="ab5388ca-1f87-44d9-b4c6-9aa3cbc12315" class="numbered-list" start="2"><li>如果盒子本身没有指定width/height，padding不会撑开盒子。<ol type="i" id="faf12972-b501-4b2e-88c2-d5ca09235d1b" class="numbered-list" start="1"><li>此时的宽度和高度继承了父元素。</li></ol></li></ol></li></ol><h2 id="6740956b-ebc2-456b-baaf-13a93a451f25" class="">外边距（margin）</h2><ol type="1" id="e3c2c639-8bfe-4550-857d-1afd15f7c021" class="numbered-list" start="1"><li>外边距可以让<strong>块级盒子</strong>水平居中<ol type="a" id="7daef74e-9e3c-4957-bce0-ec4caa6e1a3e" class="numbered-list" start="1"><li>盒子必须指定了宽度</li></ol><ol type="a" id="7b6def69-ce68-496d-87bf-20c424281a98" class="numbered-list" start="2"><li>盒子左右外边距都设置为auto <code>margin: 0 auto;</code></li></ol><ol type="a" id="8d822860-f33b-47c6-bb2d-4f726f9542db" class="numbered-list" start="3"><li>让行内元素/行内块元素水平居中，给其li</li></ol></li></ol><ol type="1" id="2509c747-cc51-49f0-93db-60379dd9b10e" class="numbered-list" start="2"><li><strong>嵌套块元素垂直外边距塌陷</strong><p id="96914301-b770-4b3e-a5d8-3b1b6dc2b119" class="">对于两个嵌套关系（父子）关系的块元素，父元素有上边距的同时，子元素也有上边距，此时父元素会塌陷较大的外边距值。</p><p id="839afc84-6ba7-4685-88e4-f0b4f355413f" class="">解决方法：<div class="indented"><ol type="1" id="8d825974-c346-4c22-abd2-56adb2897e13" class="numbered-list" start="1"><li>可以为父元素定义上边框</li></ol><ol type="1" id="f6027305-5bed-42a8-82c1-4b5f530d7ea0" class="numbered-list" start="2"><li>可以为父元素定义上内边框</li></ol><ol type="1" id="598bb276-8ee2-4cf7-a964-e31cdc5bc123" class="numbered-list" start="3"><li>可以为父元li</li></ol></div></p></li></ol><h2 id="02c0cfe2-3178-4d95-9474-bbc2d046174d" class="">清除网页元素的内外边距</h2><pre id="41ff066d-520a-4fda-905d-c861af787de7" class="code"><code>* {
+	padding:0;
+	margin:0;
+}
+
+# 这句话为CSS第一行代码
+# 行内元素尽量只设置左右内外边距</code></pre><h1 id="08b4c9a5-2948-4d5a-ab8c-c5d75d9184fe" class="">常用布局</h1><ol type="1" id="7a1631d1-5e1a-42a5-9455-43c7f5fc2199" class="numbered-list" start="1"><li>常用布局：标准流、浮动、定位</li></ol><ol type="1" id="04649466-1242-46bb-a7ae-4dcbe3de3b8b" class="numbered-list" start="2"><li>网页布局第一原则：多个块级元素纵向排列找标准流，多个块级元素横向排列找浮动。</li></ol><h2 id="c1bb25f5-cb66-4831-96ff-d229c10ec238" class="">浮动</h2><p id="ca921080-4e0d-4aa3-90b2-bd36942e7522" class="">Float属性用于创建浮动框，将其移动到一边，直到左边缘或右边缘触及包含块或另一个浮动框的边缘。</p><ol type="1" id="9b102f92-d81d-481c-bd88-fb1ac52d660f" class="numbered-list" start="1"><li>属性：默认none / left / right</li></ol><ol type="1" id="e14e80ea-e2ff-42e2-95fb-5cd5ec22b2e2" class="numbered-list" start="2"><li>特性：<ol type="a" id="8dd5606e-83c3-49ad-b20b-bc27561d725d" class="numbered-list" start="1"><li>浮动元素会脱离标准流（浮），并移动到指定位置（动），俗称脱标。<ul id="646c4d8c-6c3e-4eb3-9226-0b5d29cb1445" class="bulleted-list"><li style="list-style-type:disc">浮动只会压住后面（下面的）的标准流，不会影响前面的。</li></ul></li></ol><ol type="a" id="4a3aadf5-9ccb-4859-897e-69278628710c" class="numbered-list" start="2"><li>浮动元素会一行内显示并且元素顶部对齐<ul id="65c5630a-d9ff-44f7-a49d-848d4f9d1ee9" class="bulleted-list"><li style="list-style-type:disc">浮动的元素时互相贴靠在一起的，没有缝隙。</li></ul><ul id="cc7a890a-444e-4d38-a76c-e571bf5ec2fc" class="bulleted-list"><li style="list-style-type:disc">如果父级宽度装不下盒子，多出的盒子会另起一行对齐。</li></ul></li></ol><ol type="a" id="cfbeee00-b0e8-48e9-bd1c-13d417385cad" class="numbered-list" start="3"><li>浮动元素会具有行内块元素特性<ul id="1220c60e-330f-469b-8424-77778b5d2fd7" class="bulleted-list"><li style="list-style-type:disc">如果行内元素有了浮动，则不需要转换块级/行内块元素就可以直接给高度和宽度。</li></ul></li></ol></li></ol><ol type="1" id="74fd2690-b8da-455a-aa22-a15f699c6498" class="numbered-list" start="3"><li>浮动元素经常和标准流父级搭配使用<ol type="a" id="3414e149-e32a-4bf3-92ba-399aab2a244e" class="numbered-list" start="1"><li>可以不给父盒子高度。理想中的状况，让子盒子撑开父亲。</li></ol></li></ol><h3 id="b72aaafe-28d3-4613-8cbc-294b6e64a995" class="">清除浮动</h3><p id="1f8a4d8e-0e2e-4c2d-a97a-bb46724cb5d7" class="">清除浮动之后，父级就会根据浮动的子盒子自动检测高度。</p><ol type="1" id="03f92620-e489-4b6b-9328-4a2e57f7b499" class="numbered-list" start="1"><li>语法：<code>clear: left / right / both</code> （主要用both）</li></ol><ol type="1" id="d1d2e5d1-12ca-4717-866b-35a1551afe97" class="numbered-list" start="2"><li>方法：<ol type="a" id="7938d6ea-298a-467b-82c7-404acfb5675d" class="numbered-list" start="1"><li>额外标签法：在浮动元素末尾添加一个空的<span style="border-bottom:0.05em solid">块级元素</span>标签，令此标签清除浮动。</li></ol><ol type="a" id="82380e4b-bd22-48fa-9fdd-d4cafe86364e" class="numbered-list" start="2"><li>父级添加 <code>overflow: hidden / auto / scroll</code></li></ol><ol type="a" id="2f1e763e-33a1-41b6-99e9-48a1df6204c6" class="numbered-list" start="3"><li>给父元素添加<code>:after</code> 伪元素法<pre id="904428d1-181b-4cc3-a7fd-7742c41c6889" class="code"><code>.clearfix:after {
+		content: &#x27;&#x27;;
+		display: block;
+		height: 0;
+		clear: both;
+		visibility:hidden;
+}
+
+//IE6、7专有
+.clearfix { 
+		*zoom:1;
+}</code></pre></li></ol><ol type="a" id="c22095cd-3ab0-4731-8cb4-77410833ab00" class="numbered-list" start="4"><li>双伪元素清除浮动<pre id="7e28cc3f-16d0-4555-9988-6ed31292318d" class="code"><code>.clearfix:before,
+.clearfix:after {
+		content: &#x27;&#x27;;
+		display: table;
+}
+.clearfix:after{
+		clear:both;
+}
+.clearfix{
+		*zoom:1;
+}	</code></pre></li></ol></li></ol><h2 id="4664ade0-8ac5-4d70-adc0-42fd123c0f4c" class="">定位</h2><p id="c1e2cc6e-74a7-4d9d-ba1e-85e20bfeef64" class="">定位=定位模式+边偏移</p><h3 id="76f97ded-f5af-4735-9585-b4821c41507e" class="">定位模式</h3><ol type="1" id="d3ab42dd-ae82-4609-9050-6111de715cfb" class="numbered-list" start="1"><li><strong>static</strong><ol type="a" id="ea6c33f4-846f-4cf3-8a6a-c3ba9d18efbb" class="numbered-list" start="1"><li>标准流特性，没有边偏移，很少使用。</li></ol></li></ol><ol type="1" id="60beedb4-8925-40ae-8b28-978d9176a44f" class="numbered-list" start="2"><li><strong>relative</strong><ol type="a" id="f3899de5-077d-490b-9ade-6e4309877f3d" class="numbered-list" start="1"><li>相对于自己原来位置移动。</li></ol><ol type="a" id="8e7a1da7-7c2c-4f78-a25c-64f778760ffc" class="numbered-list" start="2"><li>原来的位置在标准流里继续占有。</li></ol></li></ol><ol type="1" id="a9cbff64-65d4-4a4c-8e61-d1b0636d22c5" class="numbered-list" start="3"><li><strong>absolute </strong>⭐<ol type="a" id="c74f0e55-7f67-463f-8b45-e6d292e53fd3" class="numbered-list" start="1"><li>相对于祖先元素来说</li></ol><ol type="a" id="2a53a6af-843b-4354-8c81-30f8cb19f753" class="numbered-list" start="2"><li>如果没有祖先元素或祖先元素没有定位，则以浏览器为准定位（Document文档）、</li></ol><ol type="a" id="b436916d-8e42-4903-a6e6-79638b5d7afa" class="numbered-list" start="3"><li>如果祖先元素有定位（相对、绝对、固定定位），则以<span style="border-bottom:0.05em solid">最近一级</span>的有定位祖先元素为参考点移动位置。</li></ol><ol type="a" id="44a40766-4c49-4c25-856c-f7763ccdabdb" class="numbered-list" start="4"><li>绝对定位不再占有原来的位置。</li></ol></li></ol><ol type="1" id="7ec67ac2-4ad4-4db8-a1a9-9d52c9133c18" class="numbered-list" start="4"><li><strong>fixed </strong>⭐<ol type="a" id="a7d292d2-dcde-4b84-bfe2-83fbf45c084f" class="numbered-list" start="1"><li>以浏览器的可视窗口为参照点移动元素</li></ol><ol type="a" id="f28a204b-e2d2-4856-8cff-3e29b295d4db" class="numbered-list" start="2"><li>固定定位不占有原来的位置（可以看成特殊的绝对定位）</li></ol><ol type="a" id="13003a72-d692-49f5-9e1d-8db1aadfdb68" class="numbered-list" start="3"><li><strong>如何固定在版心右侧位置</strong>：<code>left：50%</code> + <code>margin-left：版心宽度的一半</code></li></ol><ol type="a" id="0778f8ce-7caf-443f-aa6c-659fcb98113b" class="numbered-list" start="4"><li>子绝父相</li></ol></li></ol><ol type="1" id="d7ddb2a0-8854-471d-9050-5dfdccd78c75" class="numbered-list" start="5"><li>sticky （了解）<ol type="a" id="aa7d6481-007b-47ca-9e1f-12be305b0128" class="numbered-list" start="1"><li>以浏览器的可视窗口为参照点移动元素</li></ol><ol type="a" id="e2096b4a-4d6c-444a-9a32-50975efaff83" class="numbered-list" start="2"><li>占有原来的位置</li></ol><ol type="a" id="836f25cc-2320-4679-aaaa-e2254faf7130" class="numbered-list" start="3"><li>必须添加top、left、right、bottom其中的一个才有效</li></ol></li></ol><h3 id="26ac0038-590d-4ec1-9837-e257b2779d57" class="">定位叠放次序</h3><ol type="1" id="4ad0fa72-bd77-4862-a1f8-f03eb7864b17" class="numbered-list" start="1"><li>语法：<code>z-index: 1</code></li></ol><ol type="1" id="870c4c99-f382-463b-a134-cbc2ad461358" class="numbered-list" start="2"><li>数值可以是正整数、负整数或0，默认为auto。数值越大，盒子越往上。</li></ol><ol type="1" id="ba32fe4b-f0ac-47c7-a27f-a8daf3fd18b6" class="numbered-list" start="3"><li>只有定位的盒子才有这个属性。</li></ol><h3 id="be789b01-5a65-4593-a9e4-85e0519d1ec9" class="">定位的拓展</h3><ol type="1" id="a5b2339d-373c-4cef-b6cc-dab01f1e117f" class="numbered-list" start="1"><li>绝对定位的盒子垂直/居中<ol type="a" id="06ae55ce-45bd-457d-b795-5743783ac106" class="numbered-list" start="1"><li>不能用 <code>margin：0, auto</code></li></ol><ol type="a" id="b2112d04-8382-4873-aa3a-5b7cac40ff4d" class="numbered-list" start="2"><li><code>left：50%</code> + <code>margin-left：-盒子宽度的一半</code></li></ol></li></ol><ol type="1" id="b1c7b489-cc51-4f76-a95f-a20ff9c9dff3" class="numbered-list" start="2"><li>定位的特殊特性：<ol type="a" id="2e9b0bde-58da-4f88-8bc1-30acc37ee376" class="numbered-list" start="1"><li>行内元素添加绝对或固定定位，可以直接设置高度和宽度。</li></ol><ol type="a" id="5b6a50dd-faf1-49ad-946e-2b13177f2a7d" class="numbered-list" start="2"><li>块级元素添加绝对或固定定位，如果不给宽度或者高度，默认大小是内容的大小。</li></ol><ol type="a" id="9bbc7791-5b51-4e06-a78d-7e5411c2f998" class="numbered-list" start="3"><li>脱标的盒子不会触发外边距塌陷。</li></ol></li></ol><ol type="1" id="e20679cc-2c30-480a-a001-fd29ecedaca5" class="numbered-list" start="3"><li>绝对定位（固定定位）会压住盒子<ol type="a" id="c01f2fad-724e-413f-92c0-2047d0fe9fbc" class="numbered-list" start="1"><li>浮动元素不同，只会压住下面标准流的盒子，不会压住盒子里的文字（图片）。（可以做文字环绕效果）</li></ol><ol type="a" id="517e3df3-24b6-4986-9f6b-bb6558871b3d" class="numbered-list" start="2"><li>但是绝对定位（固定定位）会压住下面标准流所有的内容。</li></ol></li></ol><h2 id="397b9725-672e-452b-ba5c-8ad946431a24" class="">元素的显示与隐藏</h2><ol type="1" id="712b34bb-36db-4aa1-a978-87d957578a38" class="numbered-list" start="1"><li>display 属性 ⭐<ol type="a" id="03d10413-7898-448b-a83a-605d819b6b9d" class="numbered-list" start="1"><li><code>display: none</code> 隐藏对象，不再占有原来的位置。</li></ol><ol type="a" id="79a19f01-7978-4416-bab6-86561e15a9d7" class="numbered-list" start="2"><li><code>display: block</code> 除了转换成块级元素，还有显示元素的意思。</li></ol></li></ol><ol type="1" id="af5385d7-76cf-4416-a0eb-8869bcc53ea0" class="numbered-list" start="2"><li>visibility 可见性<ol type="a" id="0e9309cf-e103-4bee-b2a4-e7400d7aa38d" class="numbered-list" start="1"><li><code>visibility: visible / hidden</code> 隐藏元素后，继续占有原来的位置。</li></ol></li></ol><ol type="1" id="45508df4-0af7-48da-8d14-f21aaa014640" class="numbered-list" start="3"><li>overflow 溢出<ol type="a" id="d78881a5-c792-477a-a4b5-8da0e5aeb2ab" class="numbered-list" start="1"><li><code>overflow: visible / hidden</code> 隐藏多出的部分（有定位慎用）</li></ol><ol type="a" id="24068939-55da-4166-821b-e3fad93bb7fb" class="numbered-list" start="2"><li><code>overflow: scroll</code>显示滚动条</li></ol><ol type="a" id="c7fcd7f7-bb30-4e20-b9e6-31bd848c4182" class="numbered-list" start="3"><li><code>overflow: auto</code> 在需要的时候添加滚动条</li></ol></li></ol><h1 id="9cc92015-4d0e-48a2-b281-691c3d8ddde6" class="">CSS 3</h1><h2 id="21452f3d-3b39-444e-8153-ea799f26cec2" class="">基础</h2><h3 id="713aee86-0050-49a9-a3b2-50d13f513928" class="">边框和阴影</h3><ol type="1" id="9b53b4f5-bc36-4fde-b39f-1c5282a1f37a" class="numbered-list" start="1"><li>圆角边框：<code>border-radius:length</code> (radius为圆的半径)<ul id="27ae5042-0d86-429c-bda4-d8f534275772" class="bulleted-list"><li style="list-style-type:disc">如何做圆形：先做一个正方形，然后length改为正方形边长的一半 50%。</li></ul><ul id="264ad79a-8fa9-4dba-b192-9763e1605131" class="bulleted-list"><li style="list-style-type:disc">如何做圆角矩形：把length改为矩形高度的一半</li></ul><ul id="1641c175-8676-45d5-9036-7c72e9719149" class="bulleted-list"><li style="list-style-type:disc">可以设置不同的圆角：<code>border-radius: 10px 20px 30px 40px</code> （从左上角开始）</li></ul></li></ol><ol type="1" id="fa73cc86-bfa4-44ed-a66d-e245e2d00057" class="numbered-list" start="2"><li>盒子阴影：<code>box-shadow: 10px 10px;</code><table id="30808c33-eeac-49f1-93e9-0a4c3a8b4fb6" class="simple-table"><thead class="simple-table-header"><tr id="9dbd9fdc-56ba-475c-989c-e4c523feb4a3"><th id="wlWg" class="simple-table-header-color simple-table-header" style="width:100.74789428710938px">值</th><th id="ZEJv" class="simple-table-header-color simple-table-header" style="width:445.7478942871094px">描述</th></tr></thead><tbody><tr id="43f933c0-0d97-46f0-85c3-7bde59ba65ce"><td id="wlWg" class="" style="width:100.74789428710938px">h-shadow</td><td id="ZEJv" class="" style="width:445.7478942871094px">必需。水平阴影的位置，允许负值。在x轴上移动</td></tr><tr id="dbb92900-6931-4abe-9f5f-5c4912359bc8"><td id="wlWg" class="" style="width:100.74789428710938px">v-shadow</td><td id="ZEJv" class="" style="width:445.7478942871094px">必需。垂直阴影的位置，允许负值。在y轴上移动</td></tr><tr id="74f0e461-37e2-4fa3-ac71-8c03e95bbfb8"><td id="wlWg" class="" style="width:100.74789428710938px">blur</td><td id="ZEJv" class="" style="width:445.7478942871094px">可选。模糊距离。</td></tr><tr id="a9e32101-0c01-444c-b7b7-d6fbfc1858ff"><td id="wlWg" class="" style="width:100.74789428710938px">spread</td><td id="ZEJv" class="" style="width:445.7478942871094px">可选。阴影的尺寸。</td></tr><tr id="20e133c6-7aba-4f36-b608-6395d3b3da75"><td id="wlWg" class="" style="width:100.74789428710938px">color</td><td id="ZEJv" class="" style="width:445.7478942871094px">可选。阴影的颜色。例如：rgba(0,0,0, .3)</td></tr><tr id="5962c43e-4e85-4b95-b70c-e2a17573bfa4"><td id="wlWg" class="" style="width:100.74789428710938px">inset</td><td id="ZEJv" class="" style="width:445.7478942871094px">可选。将默认外部阴影（outset）改为内部阴影。outset不能写。</td></tr></tbody></table><ul id="6b2901ce-87b7-4c0c-854a-443e0a17b351" class="bulleted-list"><li style="list-style-type:disc">鼠标经过盒子添加阴影效果：<code>div:hover { box-shadow:XXXXX }</code></li></ul></li></ol><ol type="1" id="d38121a5-fc1f-4a0b-8f86-be56355536c9" class="numbered-list" start="3"><li>文字阴影：<code>text-shadow: h-shadow vshadow blur color;</code></li></ol><p id="3f8b6899-4ef1-4777-a266-f64198de0c54" class="">
+</p></div></article></body></html>
